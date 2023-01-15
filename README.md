@@ -1,4 +1,4 @@
-# DS 110 Introduction to Data Science with Python in Boston University
+# DS 110 - Introduction to Data Science with Python
 
 ## Course Description
 

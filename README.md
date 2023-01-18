@@ -37,3 +37,32 @@ We'll be using Blackboard for distributing assignments, collecting assignments, 
 We will mostly be using Google Colab for assignments and course notes: colab.research.google.com/
 
 Students who wish to work offline could download and install Anaconda: https://www.anaconda.com/
+
+## Assignments and Grading
+Course assignments consist of weekly individual programming assignments, and a half- semester long group project.
+
+The individual assignments are meant to evaluate students’ knowledge of the corresponding weekly lecture topics.
+
+The team project is student-driven and consists of two parts: in the first part students work in teams of 2-4 to form an interesting data-science question that can be answered through publicly available data, and descriptive analysis using Python. The students submit their proposal in the middle of the semester. The students incorporate any feedback from the instructor, and upon approval of their proposal begin work on their project. As part of their assessment, students will produce peer evaluations. During the final week of the semester, the students present their projects and submit papers.
+
+Grading:
+● Midterm exam (15%)
+● Individual assignments (50%, lowest dropped)
+● Group project (30%)
+● Recitation participation (5%)
+
+## Resources/Support/How to Succeed in This Course
+1. To succeed in this course students should attend all lectures, come to discussion prepared with questions, complete all assignments on time, and discuss problems and material with fellow classmates.
+2. Students are welcomed and encouraged to visit office hours.
+3. The Education Resource Center offers free individual and group tutoring.
+4. Accommodations for Students with Documented Disabilities: If you are a student with a
+disability or believe you might have a disability that requires accommodations, please contact the Office for Disability Services (ODS) at (617) 353-3658 or access@bu.edu to coordinate any reasonable accommodation requests. ODS is located at 25 Buick Street on the 3rd floor.
+
+## Community of Learning: Class and University Policies
+1. Courtesy expectations. Students are responsible for supporting a courteous learning environment. Please show respect for other students' questions, and maintain an attentive attitude in class. If you have an advanced question to ask, try to make it accessible to the rest of the class.
+2. Attendance & Absences. Attending class is optional but highly encouraged; behavior in class does carry some small participation weight. Attending recitation carries some participation credit. However, either can be waived with a reasonable request for accommodation. We will in particular waive for religious holidays; see the University Policy on Religious Observance.
+3. Assignment Completion & Late Work. Assignments will be submitted as PDF
+and .ipynb files on Blackboard. After the deadline, assignments can be turned in up to 2 days late for a penalty of 20% of the maximum points, or 4 days late for a penalty of 50% of the maximum points. If solutions have been posted, work can't be turned in late after that.
+4. Academic Conduct Statement
+Students are expected to abide by the guidelines and rules of the Academic Code of
+Conduct. https://www.bu.edu/academics/policies/academic-conduct-code/

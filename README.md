@@ -22,3 +22,18 @@ Students will learn to communicate the findings of their analyses both verbally 
 
 ### Teamwork/Collaboration Learning Outcomes:
 Students will form teams of 2-4 to complete a half-semester-long project. Students will be provided with feedback and guidance on teamwork by the course instructor, including how to promote team and individual accountability, set expectations, and how to schedule meetings regularly and make meetings effective.
+
+## Instructional Format, Course Pedagogy, and Approach to Learning
+The course will be primarily lecture-based, but with additional exercises for the audience designed to engage and check understanding. Homework will play a key role in moving from hypothetical concepts to applied problems. The discussion section will serve as additional review as well as giving the students more personalized feedback. The final project will be a chance to let the students guide their own learning toward a personally meaningful goal.
+
+## Books and Other Course Materials
+Recommended: Deitel & Deitel, Intro to Python for Computer Science and Data Science
+
+Recommended readings by day are in the schedule at the end of this syllabus.
+
+## Courseware
+We'll be using Blackboard for distributing assignments, collecting assignments, grading, and the distribution of course notes: https://learn.bu.edu
+
+We will mostly be using Google Colab for assignments and course notes: colab.research.google.com/
+
+Students who wish to work offline could download and install Anaconda: https://www.anaconda.com/

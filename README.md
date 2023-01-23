@@ -1,5 +1,17 @@
 # CDS DS 110 - Introduction to Data Science with Python
 
+## Basic Info
+Course Dates: 9/7-12/12
+Course Time & Loc.: 3:35 - 4:25pm, CAS 313
+Course Credits: 4
+
+Instructor Name: Dr. Kevin Gold
+Office Location: MCS 140G
+Contact Information: klgold@bu.edu
+Office Hours: Tu 3-4:30, Th 1:30-3
+Teaching Fellow: Vinay Gudavalli, gvsahit@bu.edu
+
+
 ## Course Description
 
 DS 110 is the first in a two-course sequence (including DS 210) that builds students’ competence in computing techniques central to data science.

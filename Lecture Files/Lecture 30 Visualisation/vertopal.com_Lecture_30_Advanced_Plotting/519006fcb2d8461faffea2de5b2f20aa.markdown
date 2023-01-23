@@ -1,0 +1,337 @@
+---
+jupyter:
+  celltoolbar: Slideshow
+  colab:
+    name: Lecture34AdvancedPlotting_after.ipynb
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+  language_info:
+    codemirror_mode:
+      name: ipython
+      version: 3
+    file_extension: .py
+    mimetype: text/x-python
+    name: python
+    nbconvert_exporter: python
+    pygments_lexer: ipython3
+    version: 3.8.8
+  nbformat: 4
+  nbformat_minor: 1
+  rise:
+    scroll: true
+---
+
+::: {.cell .markdown id="5nJDTEKQfQ4I" slideshow="{\"slide_type\":\"slide\"}"}
+# Seaborn
+:::
+
+::: {.cell .markdown id="4pL0nRvCfpBp" slideshow="{\"slide_type\":\"slide\"}"}
+Seaborn is a high-level plotting library that uses matplotlib as its
+lower level. It\'s popular among data scientists for providing
+nicer-looking plots, and it works with pandas dataframes by default. A
+broader gallery of examples is available at
+<https://seaborn.pydata.org/examples/index.html>, and the seaborn
+example code here is modified from there.
+:::
+
+::: {.cell .code execution_count="39" slideshow="{\"slide_type\":\"slide\"}"}
+``` {.python}
+import seaborn as sns
+df = sns.load_dataset("penguins")
+df.head()
+```
+
+::: {.output .execute_result execution_count="39"}
+```{=html}
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181.0</td>
+      <td>3750.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>Female</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+```
+:::
+:::
+
+::: {.cell .markdown id="37h6XHCvq6jw" slideshow="{\"slide_type\":\"slide\"}"}
+## Faceted histograms
+
+Sometimes the story\'s not best told with one histogram, but one for
+each group.
+
+The thing to note here is how concise the code is - a single displot
+(\"dis\" = \"distribution\") command can break down the data by species
+and sex, and make a histogram plot for each combination.
+:::
+
+::: {.cell .code execution_count="40" colab="{\"height\":455,\"base_uri\":\"https://localhost:8080/\"}" id="N4H6rNQvrE_w" outputId="6e67d2eb-55f4-44a2-ba8c-288c5d551216" slideshow="{\"slide_type\":\"-\"}"}
+``` {.python}
+# From https://seaborn.pydata.org/examples/faceted_histogram.html
+
+sns.displot(
+    df, x="flipper_length_mm", col="species", row="sex",
+    binwidth=3, height=3, facet_kws=dict(margin_titles=True),
+)
+```
+
+::: {.output .execute_result execution_count="40"}
+    <seaborn.axisgrid.FacetGrid at 0x7f7c10b58910>
+:::
+
+::: {.output .display_data}
+![](vertopal_519006fcb2d8461faffea2de5b2f20aa/bb24a3d6c72bfe8b9b195c604b6d5e45d76639b5.png)
+:::
+:::
+
+::: {.cell .markdown id="f59q2yjghoCf" slideshow="{\"slide_type\":\"slide\"}"}
+Seaborn has five themes that can be chosen as arguments to set_theme(),
+with the possibility of more fine-tuning by passing additional
+arguments. The default is \"darkgrid,\" and others are \"white,\"
+\"dark,\" and \"ticks.\" Elements that are affected, or controllable by
+set_theme(), include color palette, font, and axis style. \"Grid\" or
+not and \"white\" or \"dark\" mostly control the darkness of the
+gridlines and of the background.
+:::
+
+::: {.cell .code execution_count="34"}
+``` {.python}
+sns.set_theme(style="ticks")
+sns.displot(
+    df, x="flipper_length_mm", col="species", row="sex",
+    binwidth=3, height=3, facet_kws=dict(margin_titles=True),
+)
+```
+
+::: {.output .execute_result execution_count="34"}
+    <seaborn.axisgrid.FacetGrid at 0x7f7c1089beb0>
+:::
+
+::: {.output .display_data}
+![](vertopal_519006fcb2d8461faffea2de5b2f20aa/17fc6d22ed9367c014ac4e6be85126fae8a5b9e5.png)
+:::
+:::
+
+::: {.cell .markdown id="N30p0bupsikq" slideshow="{\"slide_type\":\"slide\"}"}
+A very slight change to this code, adding kind=\"kde\" and removing
+binwith, plots smoothed versions of the data instead (kde stands for
+\"kernel density estimate,\" a kind of probabilistically inspired
+smoothing).
+:::
+
+::: {.cell .code execution_count="35" colab="{\"height\":455,\"base_uri\":\"https://localhost:8080/\"}" id="sW-rUmB4sXlw" outputId="a70335d5-eaaf-497f-cbd7-5af879585593" slideshow="{\"slide_type\":\"-\"}"}
+``` {.python}
+# From https://seaborn.pydata.org/examples/faceted_histogram.html
+
+sns.set_theme(style="darkgrid")
+sns.displot(
+    df, kind="kde", x="flipper_length_mm", col="species", row="sex",
+    height=3, facet_kws=dict(margin_titles=True),
+)
+```
+
+::: {.output .execute_result execution_count="35"}
+    <seaborn.axisgrid.FacetGrid at 0x7f7c11169fa0>
+:::
+
+::: {.output .display_data}
+![](vertopal_519006fcb2d8461faffea2de5b2f20aa/8bbcef140e480c199e103a0a5752493d99c4089f.png)
+:::
+:::
+
+::: {.cell .markdown id="MLzm6Ht-uaIc" slideshow="{\"slide_type\":\"slide\"}"}
+## Bar charts with confidence intervals
+
+The error bars are 95% confidence intervals by default, achieved by
+\"bootstrapping\" or resampling the existing data repeatedly. A
+\"ci=None\" argument to catplot() would disable them. (\"cat\" =
+\"categorical\")
+:::
+
+::: {.cell .code execution_count="36" colab="{\"height\":245,\"base_uri\":\"https://localhost:8080/\"}" id="Idf9Dklcuedz" outputId="49da555f-f779-445c-cd4a-c44ef78f2c74" slideshow="{\"slide_type\":\"-\"}"}
+``` {.python}
+# https://seaborn.pydata.org/examples/grouped_barplot.html
+
+sns.set_theme(style="whitegrid")
+
+# Draw a nested barplot by species and sex
+g = sns.catplot(
+    data=df, kind="bar",
+    x="species", y="body_mass_g", hue="sex"
+)
+g.despine(left=True) # Removes left axis line
+g.set_axis_labels("", "Body mass (g)")
+```
+
+::: {.output .execute_result execution_count="36"}
+    <seaborn.axisgrid.FacetGrid at 0x7f7c114ff250>
+:::
+
+::: {.output .display_data}
+![](vertopal_519006fcb2d8461faffea2de5b2f20aa/29a441c077710eca06841bc4f4997304acb5cb65.png)
+:::
+:::
+
+::: {.cell .markdown id="t8yIdGqsF67M" slideshow="{\"slide_type\":\"slide\"}"}
+## Plotting a joint distribution
+
+Another neat plot that Seaborn can do is that of a joint distribution of
+X and Y, where the marginalized distributions of X and Y alone can be
+seen at the borders of the plot. With a further argument of hue, this
+can be done for several different distributions.
+:::
+
+::: {.cell .code execution_count="37" colab="{\"height\":455,\"base_uri\":\"https://localhost:8080/\"}" id="FG3w_I2TGMC4" outputId="be2a988a-01e3-4c19-ec43-2da90ba7ada9" slideshow="{\"slide_type\":\"-\"}"}
+``` {.python}
+penguins = sns.load_dataset("penguins")
+sns.jointplot(data=penguins, x="flipper_length_mm", y="bill_length_mm", hue="species")
+```
+
+::: {.output .execute_result execution_count="37"}
+    <seaborn.axisgrid.JointGrid at 0x7f7c11691160>
+:::
+
+::: {.output .display_data}
+![](vertopal_519006fcb2d8461faffea2de5b2f20aa/3c58d7ee1801483f5d2e9b5e5154a9f00a96ddfd.png)
+:::
+:::
+
+::: {.cell .markdown slideshow="{\"slide_type\":\"slide\"}"}
+# 4-dimensional scatterplot {#4-dimensional-scatterplot}
+
+This example shows how you can plot more than 2 dimensions in a
+scatterplot, using color and size to designate the other dimensions. The
+features can be numerical or categorical.
+:::
+
+::: {.cell .code execution_count="38"}
+``` {.python}
+sns.set_theme(style="whitegrid")
+
+g = sns.relplot(
+    data=df,
+    x="bill_length_mm", y="bill_depth_mm",
+    hue="species", size="body_mass_g", sizes=(10, 200),
+)
+g.despine(left=True, bottom=True)
+```
+
+::: {.output .execute_result execution_count="38"}
+    <seaborn.axisgrid.FacetGrid at 0x7f7c0fd1b1f0>
+:::
+
+::: {.output .display_data}
+![](vertopal_519006fcb2d8461faffea2de5b2f20aa/06553ece0f0c5294bdb9659254f6bd87a22f548f.png)
+:::
+:::
+
+::: {.cell .markdown}
+This also gives us a chance to show how we can choose a color palette. A
+variety of named palettes are described at
+<https://seaborn.pydata.org/tutorial/color_palettes.html>. You basically
+need to create a color map using sns.color_palette() to choose a named
+palette with additional argument as_cmap=True, then pass the colormap in
+as the palette argument to the plotter.
+:::
+
+::: {.cell .code execution_count="49"}
+``` {.python}
+cmap = sns.color_palette('mako', as_cmap=True)
+g = sns.relplot(
+    data=df,
+    x="bill_length_mm", y="bill_depth_mm",
+    hue="flipper_length_mm", size="body_mass_g", sizes=(10, 200),
+    palette = cmap
+)
+g.despine(left=True, bottom=True)
+```
+
+::: {.output .execute_result execution_count="49"}
+    <seaborn.axisgrid.FacetGrid at 0x7f7bf3217ca0>
+:::
+
+::: {.output .display_data}
+![](vertopal_519006fcb2d8461faffea2de5b2f20aa/b27efbdd85b312474cf47e1c01f133c4bc8aef13.png)
+:::
+:::
+
+::: {.cell .code}
+``` {.python}
+```
+:::
